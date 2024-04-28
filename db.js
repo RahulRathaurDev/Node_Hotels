@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-// Function to connect to MongoDB database
 async function connectToDB() {
     try {
-        
-        const connectionString = `mongodb+srv://rahulkumar:rahulbabu@cluster0.jcsdjb6.mongodb.net/Hotel_Node`;
+        const connectionString = process.env.DB_URL; // Corrected to use DB_URL
 
         await mongoose.connect(connectionString, {
             useNewUrlParser: true,
