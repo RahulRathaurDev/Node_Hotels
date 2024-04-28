@@ -1,19 +1,19 @@
-// db.js
-
-const mongoose = require( 'mongoose' );
+const mongoose = require('mongoose');
 
 // Function to connect to MongoDB database
 async function connectToDB() {
     try {
-        await mongoose.connect( 'mongodb://127.0.0.1:27017/Hotel', {
+        
+        const connectionString = `mongodb+srv://rahulkumar:rahulbabu@cluster0.jcsdjb6.mongodb.net/Hotel_Node`;
+
+        await mongoose.connect(connectionString, {
             useNewUrlParser: true,
             useUnifiedTopology: true
-        } );
-        console.log( 'Connected to MongoDB' );
-    } catch ( error ) {
-        console.error( 'Error connecting to MongoDB:', error );
+        });
+        console.log('Connected to MongoDB');
+    } catch (error) {
+        console.error('Error connecting to MongoDB:', error);
     }
 }
 
-// Export the connectToDB function
 module.exports = connectToDB;
